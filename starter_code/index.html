@@ -13,7 +13,7 @@
 					<h1>My Dev Story</h1>
 					<div class="row formGroup">
 					    <label for="name">Name:</label>
-					    <input id="name" name="name" >
+					    <input id="name" name="name" required>
 				    </div>
 					<div class="row formGroup">
 				    	<label for="verb-1">Verb:</label>
@@ -37,7 +37,7 @@
 					</div>
 					<div class="row formGroup">
 				    	<label for="mission">Misison Statement:</label>
-				    	<textarea id="mission" name="mission"></textarea>
+				    	<textarea id="mission" name="mission" required></textarea>
 					</div>
 
 					<div class="row formGroup">
@@ -60,7 +60,7 @@
 					
 					<div class="row formGroup">
 				    	<label for="noun-1">Noun:</label>
-				    	<input id="noun-1" name="noun-1">
+				    	<input id="noun-1" name="noun-1" required>
 					</div>
 					<div class="row formGroup">
 	
@@ -83,9 +83,9 @@
 					</div>
 					<div class="row formGroup">
 				    	<label for="noun-2">Noun:</label>
-				    	<input id="noun-2" name="noun-2">
+				    	<input id="noun-2" name="noun-2" required>
 					</div>
-					<div class="row formGroup">
+					<div >
 				    	<input type="submit">
 				    </div>
 				    
@@ -110,13 +110,35 @@
 			// main.appendChild(results);
 		};
 
-		$("form").on("submit", function(event){
+		$("form").submit( function(event){
 
 		    // Stop the form from submitting
 		    event.preventDefault();
-		    alert('Missing info');
 	    	// Run the 'makeResults' function seen above
+
+	    	localStorage.setItem("name", $("#name").val());
+	    	localStorage.setItem("verb-1", $("#verb-1").val());
+	    	localStorage.setItem("mission", $("#mission").val());
+
+
+	    	localStorage.setItem("radio1", $("#radio1").val());
+	    	localStorage.setItem("radio2", $("#radio2").val());
+	    	localStorage.setItem("radio3", $("#radio3").val());
+
+	    	localStorage.setItem("noun-1", $("#noun-1").val());
+
+
+	    	localStorage.setItem("check1", $("#check1").val());
+	    	localStorage.setItem("check2", $("#check2").val());
+	    	localStorage.setItem("check3", $("#check3").val());
+
+
+	    	localStorage.setItem("noun-2", $("#noun-2").val());
+	    	
+
 	    	makeResults();
+
+
 	    	/*
 			
 				For each value entered into a form input, add the input to the corresponding sentence, then append the text into the results section:
