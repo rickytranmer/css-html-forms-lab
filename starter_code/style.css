@@ -56,8 +56,7 @@
 }
 .results {
 	background: #C8DBB3;
-	float: left;
-
+	max-width: 50%;
 }
 
 body {
@@ -71,6 +70,7 @@ div {
 }
 input {
 	flex-grow: 1;
+	padding: 1rem;
 }
 h1 {
 	font-size: 2rem;
@@ -87,6 +87,7 @@ textarea {
 	border: 1px #CCC;
 	text-shadow: none;
 	box-shadow: none;
+	padding: 1rem;
 }
 input, select {
 	min-height: 48px;
