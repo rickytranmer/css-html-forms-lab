@@ -59,6 +59,14 @@
 	max-width: 50%;
 }
 
+#submit-button {
+	background: rga(39, 208, 127);
+	opacity: .5;
+}
+#submit-button:hover {
+	opacity: 1;
+}
+
 body {
 	font-size: 1rem;
 	font-weight: 400;

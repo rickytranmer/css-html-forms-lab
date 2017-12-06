@@ -85,7 +85,7 @@
 				    	<input id="noun-2" name="noun-2" required>
 					</div>
 					<div >
-				    	<input type="submit">
+				    	<input id="submit-button" type="submit">
 				    </div>
 				    
 			    </div>
@@ -100,9 +100,25 @@
 	  crossorigin="anonymous"></script>
 	<script type="text/javascript">
 
-		//ADD - Populate inputs with sessionStorage, or create sessionStorage
-
 		var main = $('#main');
+
+		//ADD - Populate inputs with sessionStorage
+		if (sessionStorage.getItem("name")) {
+			$('#name').val(sessionStorage.getItem("name"));
+		}
+		if (sessionStorage.getItem("verb-1")) {
+			$('#verb-1').val(sessionStorage.getItem("verb-1"));
+		}
+		if (sessionStorage.getItem("mission")) {
+			$('#mission').val(sessionStorage.getItem("name"));
+		}
+		if (sessionStorage.getItem("noun-1")) {
+			$('#noun-1').val(sessionStorage.getItem("noun-1"));
+		}
+		if (sessionStorage.getItem("noun-2")) {
+			$('#noun-2').val(sessionStorage.getItem("noun-2"));
+		}
+
 		function makeResults() {
 
 			$( "<section class='container results'><h1>A True Story:</h1>" ).appendTo(main);
@@ -134,6 +150,8 @@
 	    	// sessionStorage.setItem("check1", $("#check1").val());
 	    	// sessionStorage.setItem("check2", $("#check2").val());
 	    	// sessionStorage.setItem("check3", $("#check3").val());
+
+	    	sessionStorage.setItem("check", "");
 
 	    	var radios = $('input');
 	    	for (let i = 0; i < radios.length; i++) {
