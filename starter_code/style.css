@@ -3,7 +3,6 @@
 	box-sizing: border-box; 
 	/* ^^^ Forces all elements to include content, padding, and border as part of their width/height calculation: 
 	http://www.w3schools.com/cssref/css3_pr_box-sizing.asp */
-	font-family: 'Proza Libre', sans-serif;
 }
 
 /* 
@@ -21,9 +20,66 @@
 
 	Every container, form, input, and button should have rounded corners.
 */
-.container {
-	
+.main {
+	width: 100%;
 }
+.container {
+	float: left;
+	padding: 1.5rem;
+	margin: 1rem 0;
+	border-width: .2rem;
+	position: relative;
+	border: dotted gray;
+}
+.container:after {
+	display: block;
+    content: "";
+    clear: both;
+}
+.container, .form, input, button, textarea {
+	border-radius: .25em;
+}
+.formGroup {
+	display: block;
+	margin-bottom: 1rem;
+	width: 100%;
+	background-clip: padding-box;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+.check, .radio {
+	margin-left: 3em;
+}
+.results {
+	margin-left: 1em;
+}
+
+body {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	font-family: 'Proza Libre', sans-serif;
+}
+div {
+	display: block;
+}
+input {
+	flex-grow: 1;
+}
+h1 {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #ae2a2a;
+	text-decoration: underline;
+}
+select {
+	margin-left: 6rem;
+	width: 10rem;
+}
+
+
 
 
 /*-------- Form Styles --------*/
