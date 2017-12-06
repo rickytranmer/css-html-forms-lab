@@ -26,10 +26,11 @@
 .container {
 	float: left;
 	padding: 1.5rem;
-	margin: 1rem 0;
+	margin: 1rem 3vh;
 	border-width: .2rem;
 	position: relative;
 	border: dotted gray;
+	background-color: #E3E6EC;
 }
 .container:after {
 	display: block;
@@ -54,7 +55,7 @@
 	margin-left: 3em;
 }
 .results {
-	margin-left: 1em;
+	background: #C8DBB3;
 }
 
 body {
@@ -62,7 +63,6 @@ body {
 	font-weight: 400;
 	line-height: 1.5;
 	font-family: 'Proza Libre', sans-serif;
-	background-color: #E3E6EC;
 }
 div {
 	display: block;

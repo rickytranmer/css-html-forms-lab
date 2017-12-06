@@ -4,7 +4,6 @@
 	<title>CSS HTML Forms Lab</title>
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Proza+Libre:400,700" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<section id="main">
@@ -98,6 +97,8 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 
+		//ADD - Populate inputs with sessionStorage, or create sessionStorage
+
 		var main = $('#main');
 		function makeResults() {
 
@@ -110,35 +111,49 @@
 			// main.appendChild(results);
 		};
 
-		$("form").submit( function(event){
+		$("form").on("submit", function(event){
 
+			//ADD - Remove old results
 		    // Stop the form from submitting
 		    event.preventDefault();
 	    	// Run the 'makeResults' function seen above
 
-	    	localStorage.setItem("name", $("#name").val());
-	    	localStorage.setItem("verb-1", $("#verb-1").val());
-	    	localStorage.setItem("mission", $("#mission").val());
+	    	sessionStorage.setItem("name", $("#name").val());
+	    	sessionStorage.setItem("verb-1", $("#verb-1").val());
+	    	sessionStorage.setItem("mission", $("#mission").val());
 
+	    	//ADD - save radio values
+	    	// sessionStorage.setItem("radio1", $("#radio1").val());
+	    	// sessionStorage.setItem("radio2", $("#radio2").val());
+	    	// sessionStorage.setItem("radio3", $("#radio3").val());
+	    	//ADD - save check values
+	    	// sessionStorage.setItem("check1", $("#check1").val());
+	    	// sessionStorage.setItem("check2", $("#check2").val());
+	    	// sessionStorage.setItem("check3", $("#check3").val());
 
-	    	localStorage.setItem("radio1", $("#radio1").val());
-	    	localStorage.setItem("radio2", $("#radio2").val());
-	    	localStorage.setItem("radio3", $("#radio3").val());
+	    	var radios = $('input');
+	    	for (let i = 0; i < radios.length; i++) {
+	    	    if (radios[i].type === 'radio' && radios[i].checked) {
+	    	        // get value, set checked flag or do whatever you need to
+	    	        sessionStorage.setItem("radio", radios[i].value); 
+	    	        console.log(radios);   
+	    	        console.log(radios[i]);   
+	    	    } else if (radios[i].type === 'checkbox' && radios[i].checked) {
+	    	    	sessionStorage.setItem("check", radios[i].value); 
+	    	    	console.log(radios);   
+	    	    	console.log(radios[i]);   
+	    	    }
+	    	}
 
-	    	localStorage.setItem("noun-1", $("#noun-1").val());
+	    	sessionStorage.setItem("noun-1", $("#noun-1").val());
+	    
 
-
-	    	localStorage.setItem("check1", $("#check1").val());
-	    	localStorage.setItem("check2", $("#check2").val());
-	    	localStorage.setItem("check3", $("#check3").val());
-
-
-	    	localStorage.setItem("noun-2", $("#noun-2").val());
+	    	sessionStorage.setItem("noun-2", $("#noun-2").val());
 	    	
 
 	    	makeResults();
 
-
+	    	//ADD - Concatenate strings for each input
 	    	/*
 			
 				For each value entered into a form input, add the input to the corresponding sentence, then append the text into the results section:
