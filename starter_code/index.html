@@ -113,7 +113,8 @@
 
 		$("form").on("submit", function(event){
 
-			//ADD - Remove old results
+			// - Remove old results
+			$('.results').remove();
 		    // Stop the form from submitting
 		    event.preventDefault();
 	    	// Run the 'makeResults' function seen above
@@ -122,11 +123,11 @@
 	    	sessionStorage.setItem("verb-1", $("#verb-1").val());
 	    	sessionStorage.setItem("mission", $("#mission").val());
 
-	    	//ADD - save radio values
+	    	//? - save radio values
 	    	// sessionStorage.setItem("radio1", $("#radio1").val());
 	    	// sessionStorage.setItem("radio2", $("#radio2").val());
 	    	// sessionStorage.setItem("radio3", $("#radio3").val());
-	    	//ADD - save check values
+	    	//? - save check values
 	    	// sessionStorage.setItem("check1", $("#check1").val());
 	    	// sessionStorage.setItem("check2", $("#check2").val());
 	    	// sessionStorage.setItem("check3", $("#check3").val());
@@ -139,9 +140,15 @@
 	    	        console.log(radios);   
 	    	        console.log(radios[i]);   
 	    	    } else if (radios[i].type === 'checkbox' && radios[i].checked) {
-	    	    	sessionStorage.setItem("check", radios[i].value); 
-	    	    	console.log(radios);   
-	    	    	console.log(radios[i]);   
+	    	    	if (sessionStorage.getItem("check")) {
+	    	    		sessionStorage.setItem("check", sessionStorage.getItem("check") + ", " + radios[i].value); 
+	    	    		console.log(radios);   
+	    	    		console.log(radios[i]);   
+	    	    	} else {
+		    	    	sessionStorage.setItem("check", radios[i].value); 
+		    	    	console.log(radios);   
+		    	    	console.log(radios[i]);   	    	    		
+	    	    	}
 	    	    }
 	    	}
 
@@ -152,6 +159,14 @@
 	    	
 
 	    	makeResults();
+
+	    	var name = sessionStorage.getItem("name");
+	    	var verb1 = sessionStorage.getItem("verb-1");
+	    	var mission = sessionStorage.getItem("mission");
+	    	var sentiment1 = sessionStorage.getItem("radio");
+	    	var noun1 = sessionStorage.getItem("noun-1");
+	    	var sentiment2 = sessionStorage.getItem("check");
+	    	var noun2 = sessionStorage.getItem("noun-2");
 
 	    	//ADD - Concatenate strings for each input
 	    	/*
@@ -169,6 +184,9 @@
 				"In the end, their success can be contributed entirely to their " + ADJECTIVE2[list each one checked, comma-separated] + NOUN2."
 
 	    	*/ 
+
+	    	$('.result').html("Once upon a time there was a Developer named " + name.)
+
 		});
 	</script>
 
